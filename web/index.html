@@ -14,29 +14,40 @@
     This is a placeholder for base href that will be replaced by the value of
     the `--base-href` argument provided to `flutter build`.
   -->
+  <base href="/">
+
   <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="description" content="Hyper-casual games platform - Single Player vs. Multiplayer - Own to earn - Play to earn">
 
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="websiento11">
+  <meta name="apple-mobile-web-app-title" content="Crypto Playmate - Hypercasual games platform">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>Siento11 Colectivo</title>
+  <title>Crypto Playmate</title>
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
-  <!-- This script installs service_worker.js to provide PWA functionality to
-       application. For more information, see:
-       https://developers.google.com/web/fundamentals/primers/service-workers -->
-  <script>
+<!-- This script installs service_worker.js to provide PWA functionality to
+     application. For more information, see:
+     https://developers.google.com/web/fundamentals/primers/service-workers -->
+<script type="text/javascript">
+    let useHtml = // ...
+    if(useHtml) {
+      window.flutterWebRenderer = "html";
+    } else {
+      window.flutterWebRenderer = "canvaskit";
+    }
+  </script>
+<script src="main.dart.js" type="application/javascript"></script>
+<script>
     var serviceWorkerVersion = null;
     var scriptLoaded = false;
     function loadMainDartJs() {
@@ -99,30 +110,27 @@
       // Service workers not supported. Just drop the <script> tag.
       loadMainDartJs();
     }
-</body>
-</html>
 </script>
-  <script src = "https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src = "https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-  <script src = "https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
-  <script src=  "https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-storage.js"></script>
+<script src = "https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src = "https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src = "https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+<script src=  "https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-storage.js"></script>
 
-  <script>
+<script>
     var firebaseConfig = {
     apiKey: "AIzaSyC_ymIz4uvpM1rh4iH6cgl7pjJY18J2m0g",
-    authDomain: "siento-11-colectivo.firebaseapp.com",
-    projectId: "siento-11-colectivo",
-    storageBucket: "siento-11-colectivo.appspot.com",
-    messagingSenderId: "503374868440",
-    appId: "1:503374868440:web:bf9f9251f69cb05cb08cad",
-    measurementId: "G-C31M9KVWRB"
+  authDomain: "siento-11-colectivo.firebaseapp.com",
+  projectId: "siento-11-colectivo",
+  storageBucket: "siento-11-colectivo.appspot.com",
+  messagingSenderId: "503374868440",
+  appId: "1:503374868440:web:bf9f9251f69cb05cb08cad",
+  measurementId: "G-C31M9KVWRB"
   };
 
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
 
-</script>
-</body>
+</script></body>
 </html>
