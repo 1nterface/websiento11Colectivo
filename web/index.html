@@ -29,7 +29,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>websiento11</title>
+  <title>Siento11 Colectivo</title>
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
@@ -99,6 +99,30 @@
       // Service workers not supported. Just drop the <script> tag.
       loadMainDartJs();
     }
-  </script>
+</body>
+</html>
+</script>
+  <script src = "https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src = "https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src = "https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+  <script src=  "https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-storage.js"></script>
+
+  <script>
+    var firebaseConfig = {
+    apiKey: "AIzaSyC_ymIz4uvpM1rh4iH6cgl7pjJY18J2m0g",
+    authDomain: "siento-11-colectivo.firebaseapp.com",
+    projectId: "siento-11-colectivo",
+    storageBucket: "siento-11-colectivo.appspot.com",
+    messagingSenderId: "503374868440",
+    appId: "1:503374868440:web:bf9f9251f69cb05cb08cad",
+    measurementId: "G-C31M9KVWRB"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+</script>
 </body>
 </html>
