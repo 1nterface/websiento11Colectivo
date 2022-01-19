@@ -697,10 +697,16 @@ class menu_clienteState extends State<menu_cliente> {
                         await Navigator.push(context, MaterialPageRoute(builder: (context) => producto_detalle_zoom(cajas_modelo("", nombreProducto,"fecha",0,2,3,4,5,descripcion, empresa,foto,"f", newid, costo))),);
 
                         print("Precio: "+costo.toString());
+
+                        ui.platformViewRegistry.registerViewFactory(
+                          foto,
+                              (int viewId) => ImageElement()..src = foto,
+                        );
                       },
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10.0),
-                        child: hola(foto) //PONER AQUI METODO DE IMAGEN PARA WEB
+                        child: HtmlElementView(
+                          viewType: foto,
                       ),
                     ),
                   ],
