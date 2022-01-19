@@ -1008,16 +1008,9 @@ class menu_clienteState extends State<menu_cliente> {
                                   Container(
                                     width: 200.0,
                                     height: 150.0,
-                                    decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                        fit: BoxFit.cover,
-                                        image: ClipRRect(
-                                          borderRadius: BorderRadius.circular(10.0),
-                                          child: HtmlElementView(viewType: foto), //PONER A
-                                        ),
-                                      ),
-                                      //borderRadius: BorderRadius.all(Radius.circular(30.0)),
-                                      color: Colors.transparent,
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      child: HtmlElementView(viewType: documents['foto']), //PONER A
                                     ),
                                   ),
                                   Padding(
