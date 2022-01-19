@@ -999,6 +999,11 @@ class menu_clienteState extends State<menu_cliente> {
                           'estado': 'Recibido',
                         });
 
+                        ui.platformViewRegistry.registerViewFactory(
+                          foto,
+                              (int viewId) => ImageElement()..src = foto,
+                        );
+
                       },
                       child: Card(
                         child: Row(
@@ -1010,7 +1015,7 @@ class menu_clienteState extends State<menu_cliente> {
                                     height: 150.0,
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(10.0),
-                                      child: HtmlElementView(viewType: documents['foto']), //PONER A
+                                      child: HtmlElementView(viewType: foto), //PONER A
                                     ),
                                   ),
                                   Padding(
