@@ -1,3 +1,5 @@
+import 'package:dio/dio.dart';
+import 'dart:typed_data';
 import 'dart:ui' as ui;
 import 'dart:async';
 import 'dart:html';
@@ -1032,7 +1034,35 @@ class menu_clienteState extends State<menu_cliente> {
                           children:[
                             Row(
                                 children:[
-                                  HtmlElementView(viewType: documents["foto"]),
+                                  Container(
+                                    width: 200.0,
+                                    height: 150.0,
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      child: FutureBuilder(
+                                        future: Dio()
+                                            .get<Uint8List>(
+                                          documents["foto"],
+                                          options: Options(
+                                            responseType: ResponseType.bytes,
+                                            followRedirects: true,
+                                          ),
+                                        )
+                                            .then((value) => value.data),
+                                        builder: (context, snapshot) {
+                                          return snapshot.connectionState ==
+                                              ConnectionState.done &&
+                                              snapshot.hasData
+                                              ? Image.memory(
+                                            snapshot.data as Uint8List,
+                                            height: 32,
+                                            width: 32,
+                                          )
+                                              : const SizedBox.shrink();
+                                        },
+                                      ), //PONER A
+                                    ),
+                                  ),
                                   Padding(
                                     padding: EdgeInsets.only(left:20),
                                     child: Column(
