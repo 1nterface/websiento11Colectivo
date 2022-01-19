@@ -1032,7 +1032,7 @@ class menu_clienteState extends State<menu_cliente> {
                           children:[
                             Row(
                                 children:[
-                                  fotohtml(foto),
+                                  HtmlElementView(viewType: documents["foto"]),
                                   Padding(
                                     padding: EdgeInsets.only(left:20),
                                     child: Column(
