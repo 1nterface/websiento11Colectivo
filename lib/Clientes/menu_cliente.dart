@@ -1000,13 +1000,11 @@ class menu_clienteState extends State<menu_cliente> {
                           'estado': 'Recibido',
                         });
 
-                        setState(() {
                           foto = documents["foto"];
                           ui.platformViewRegistry.registerViewFactory(
                             foto,
                                 (int viewId) => ImageElement()..src = foto,
                           );
-                        });
 
 
                       },
