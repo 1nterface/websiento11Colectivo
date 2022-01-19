@@ -928,7 +928,7 @@ class menu_clienteState extends State<menu_cliente> {
     );
   }
 
-  var foto = "";
+  String foto = "";
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
