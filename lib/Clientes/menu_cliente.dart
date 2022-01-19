@@ -929,6 +929,25 @@ class menu_clienteState extends State<menu_cliente> {
   }
 
   String foto = "";
+
+
+  Widget fotohtml(foto){
+
+    ui.platformViewRegistry.registerViewFactory(
+      foto,
+          (int viewId) => ImageElement()..src = foto,
+    );
+
+    return Container(
+      width: 200.0,
+      height: 150.0,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10.0),
+        child: HtmlElementView(viewType: foto), //PONER A
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -1000,27 +1019,20 @@ class menu_clienteState extends State<menu_cliente> {
                           'estado': 'Recibido',
                         });
 
+                        setState(() {
                           foto = documents["foto"];
-                          ui.platformViewRegistry.registerViewFactory(
-                            foto,
-                                (int viewId) => ImageElement()..src = foto,
-                          );
+
+                        });
 
 
+//HACER WIDGET DE TODO Y YA..
                       },
                       child: Card(
                         child: Row(
                           children:[
                             Row(
                                 children:[
-                                  Container(
-                                    width: 200.0,
-                                    height: 150.0,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      child: HtmlElementView(viewType: foto), //PONER A
-                                    ),
-                                  ),
+                                  fotohtml(foto),
                                   Padding(
                                     padding: EdgeInsets.only(left:20),
                                     child: Column(
