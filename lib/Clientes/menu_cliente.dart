@@ -928,6 +928,7 @@ class menu_clienteState extends State<menu_cliente> {
     );
   }
 
+  var foto = "";
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -989,7 +990,7 @@ class menu_clienteState extends State<menu_cliente> {
                       InkWell(
                       onTap: () async{
 
-                        var foto = documents["foto"];
+                        foto = documents["foto"];
                         var newid = documents["newid"];
 
                         showDialog(context: context, builder: (BuildContext context) =>  _buildAboutDialog(context,  documents["foto"],  documents["nombreProducto"],  documents["costoProducto"],  documents["descripcion"],  "",  "",  documents["newid"],"", documents["existencia"]));
@@ -999,10 +1000,13 @@ class menu_clienteState extends State<menu_cliente> {
                           'estado': 'Recibido',
                         });
 
-                        ui.platformViewRegistry.registerViewFactory(
-                          foto,
-                              (int viewId) => ImageElement()..src = foto,
-                        );
+                        setState(() {
+                          ui.platformViewRegistry.registerViewFactory(
+                            foto,
+                                (int viewId) => ImageElement()..src = foto,
+                          );
+                        });
+
 
                       },
                       child: Card(
