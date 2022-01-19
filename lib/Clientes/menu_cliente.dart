@@ -705,8 +705,7 @@ class menu_clienteState extends State<menu_cliente> {
                       },
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10.0),
-                        child: HtmlElementView(
-                          viewType: foto,
+                        child: HtmlElementView(viewType: foto); //PONER A
                       ),
                     ),
                   ],
