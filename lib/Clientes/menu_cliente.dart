@@ -1011,7 +1011,10 @@ class menu_clienteState extends State<menu_cliente> {
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
                                         fit: BoxFit.cover,
-                                        image: NetworkImage(documents["foto"]),
+                                        image: ClipRRect(
+                                          borderRadius: BorderRadius.circular(10.0),
+                                          child: HtmlElementView(viewType: foto), //PONER A
+                                        ),
                                       ),
                                       //borderRadius: BorderRadius.all(Radius.circular(30.0)),
                                       color: Colors.transparent,
