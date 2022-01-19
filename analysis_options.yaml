@@ -10,6 +10,8 @@
 include: package:flutter_lints/flutter.yaml
 
 analyzer:
+  errors:
+    undefined_prefixed_name: ignore
   enable-experiment:
     - non-nullable
 linter:

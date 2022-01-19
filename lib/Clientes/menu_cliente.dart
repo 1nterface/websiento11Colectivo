@@ -1,3 +1,6 @@
+import 'dart:ui' as ui;
+import 'dart:async';
+import 'dart:html';
 import 'dart:math';
 import 'package:badges/badges.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -660,6 +663,19 @@ class menu_clienteState extends State<menu_cliente> {
 
   }
 
+  //final String imageUrl = "https://www.elcarrocolombiano.com/wp-content/uploads/2019/01/20190122-MPM-ERELIS-AUTO-DEPORTIVO-MAS-BARATO-01.jpg";
+
+  Widget hola (String foto){
+
+    ui.platformViewRegistry.registerViewFactory(
+      foto,
+          (int viewId) => ImageElement()..src = foto,
+    );
+    return HtmlElementView(
+      viewType: foto,
+    );
+  }
+
   Widget _buildAboutDialog(BuildContext context, String foto, String nombreProducto, double costo, String descripcion, String empresa, String categoriap, String newid, String codigo, int existencia) {
     return StatefulBuilder(
       builder: (BuildContext context, setState) =>  ListView(
@@ -684,7 +700,7 @@ class menu_clienteState extends State<menu_cliente> {
                       },
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10.0),
-                        child: Image.network(foto)
+                        child: hola(foto) //PONER AQUI METODO DE IMAGEN PARA WEB
                       ),
                     ),
                   ],
