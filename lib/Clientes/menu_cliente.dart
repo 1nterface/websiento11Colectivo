@@ -990,7 +990,7 @@ class menu_clienteState extends State<menu_cliente> {
                       InkWell(
                       onTap: () async{
 
-                        foto = documents["foto"];
+
                         var newid = documents["newid"];
 
                         showDialog(context: context, builder: (BuildContext context) =>  _buildAboutDialog(context,  documents["foto"],  documents["nombreProducto"],  documents["costoProducto"],  documents["descripcion"],  "",  "",  documents["newid"],"", documents["existencia"]));
@@ -1001,6 +1001,7 @@ class menu_clienteState extends State<menu_cliente> {
                         });
 
                         setState(() {
+                          foto = documents["foto"];
                           ui.platformViewRegistry.registerViewFactory(
                             foto,
                                 (int viewId) => ImageElement()..src = foto,
