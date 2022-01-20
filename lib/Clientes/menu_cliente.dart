@@ -1021,14 +1021,14 @@ class menu_clienteState extends State<menu_cliente> {
                           'estado': 'Recibido',
                         });
 
-                      
+
 
 //HACER WIDGET DE TODO Y YA..
                       },
                       child: Card(
                         child: Row(
                           children:[
-                            Row(
+                            Row(//h
                                 children:[
                                   Container(
                                     width: 200.0,
