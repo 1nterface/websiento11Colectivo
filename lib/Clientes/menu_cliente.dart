@@ -1039,7 +1039,7 @@ class menu_clienteState extends State<menu_cliente> {
                                     height: 150.0,
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(10.0),
-                                      child: Image.network("https://cors-anywhere.herokuapp.com/"+ documents['foto']),
+                                      child: Image.network("https://cors.bridged.cc/"+ documents['foto']),
                                     ),),
                                   Padding(
                                     padding: EdgeInsets.only(left:20),
