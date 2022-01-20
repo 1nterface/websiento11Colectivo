@@ -1039,30 +1039,8 @@ class menu_clienteState extends State<menu_cliente> {
                                     height: 150.0,
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(10.0),
-                                      child: FutureBuilder(
-                                        future: Dio()
-                                            .get<Uint8List>(
-                                          documents["foto"],
-                                          options: Options(
-                                            responseType: ResponseType.bytes,
-                                            followRedirects: true,
-                                          ),
-                                        )
-                                            .then((value) => value.data),
-                                        builder: (context, snapshot) {
-                                          return snapshot.connectionState ==
-                                              ConnectionState.done &&
-                                              snapshot.hasData
-                                              ? Image.memory(
-                                            snapshot.data as Uint8List,
-                                            height: 32,
-                                            width: 32,
-                                          )
-                                              : const SizedBox.shrink();
-                                        },
-                                      ), //PONER A
-                                    ),
-                                  ),
+                                      child: Image.network("https://cors-anywhere.herokuapp.com/"+ documents['foto']),
+                                    ),),
                                   Padding(
                                     padding: EdgeInsets.only(left:20),
                                     child: Column(
