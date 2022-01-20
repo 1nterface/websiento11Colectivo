@@ -1023,7 +1023,7 @@ class menu_clienteState extends State<menu_cliente> {
 
 
 
-//HACER WIDGET DE TODO Y YA..
+//HACER WIDGET DE TODO Y YA
                       },
                       child: Card(
                         child: Row(
