@@ -198,7 +198,7 @@ class homeState extends State<home> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return DefaultTabController(
       initialIndex:selectedPage,
-      length: 3,
+      length: 7,
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -255,13 +255,13 @@ class homeState extends State<home> with SingleTickerProviderStateMixin {
                 children: [
                   Tab(icon: Icon(Icons.home, color: Colors.white,)),
                   Text("CATALOGO", style: TextStyle(color: Colors.white),),
-                  Text("CATALOGO", style: TextStyle(color: Colors.white),),
-                  Text("CATALOGO", style: TextStyle(color: Colors.white),),
-                  Text("CATALOGO", style: TextStyle(color: Colors.white),),
-                  Text("CATALOGO", style: TextStyle(color: Colors.white),),
                 ],
               ),
               //Tab(icon: Icon(Icons.chat), text: "CHAT",),
+              promosNotificaciones(context),
+              promosNotificaciones(context),
+              promosNotificaciones(context),
+              promosNotificaciones(context),
               promosNotificaciones(context),
               FirebaseAuth.instance.currentUser?.email == null?
               comprasNotificaciones2(context)
@@ -276,10 +276,10 @@ class homeState extends State<home> with SingleTickerProviderStateMixin {
             //proveedor.Menu_Clientes2(),
             menu.menu_cliente(widget.product.nombreProducto, widget.product.nombreProveedor, widget.product.newid, widget.product.foto, widget.product.estado, widget.product.codigoDeBarra, widget.product.maximo, widget.product.minimo),
             ofertas.ofertas(),
-            compras.compras(),
-            compras.compras(),
-            compras.compras(),
-            compras.compras(),
+            ofertas.ofertas(),
+            ofertas.ofertas(),
+            ofertas.ofertas(),
+            ofertas.ofertas(),
             compras.compras(),
             //acreedores.Mis_Compras2(),
             //empleados.Pagos_Clientes(),
