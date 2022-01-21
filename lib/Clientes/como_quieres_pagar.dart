@@ -733,8 +733,9 @@ class como_quieres_pagarState extends State<como_quieres_pagar> {
                 //Navigator.of(context).pop();
                 //Navigator.of(context).pop();
 
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => home(cajas_modelo("","","",0,0,0,0,0,"","","","","",0),2)));
+                //PASAR A HOME DE ESTA FORMA Y SI SE ACTUALIZA LA NOTIFICACION..PASAR VARIABLES NADAMAS PARA QUE SE
+                //VEA EL TOTAL
+                //Navigator.push(context, MaterialPageRoute(builder: (context) => home(cajas_modelo("","","",0,0,0,0,0,"","","","","",0),2)));
 
                 //gps();
                 final position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
