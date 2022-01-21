@@ -87,7 +87,7 @@ class lista_restaurantesState extends State<lista_restaurantes> {
 
 
                       await Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                          home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correo"],documents["colonia"], documents["calle"], documents["empresa"], 0))
+                          home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correo"],documents["colonia"], documents["calle"], documents["empresa"], 0),0)
                       ),);
 
 
@@ -132,7 +132,7 @@ class lista_restaurantesState extends State<lista_restaurantes> {
 
 
                                 await Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                                    home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correo"],documents["colonia"], documents["calle"], documents["empresa"], 0))
+                                    home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correo"],documents["colonia"], documents["calle"], documents["empresa"], 0),0)
                                 ),);
 
 
@@ -268,7 +268,7 @@ class lista_restaurantesState extends State<lista_restaurantes> {
 
 
                       await Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                          home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correo"],documents["colonia"], documents["calle"], documents["empresa"], 0))
+                          home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correo"],documents["colonia"], documents["calle"], documents["empresa"], 0),0)
                       ),);
 
 
@@ -310,7 +310,7 @@ class lista_restaurantesState extends State<lista_restaurantes> {
                                 prefs.setString('empresa', documents["empresa"]);
 
                                 await Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                                    home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correoRestaurante"],documents["colonia"], documents["calle"], documents["newid"], 0))
+                                    home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correoRestaurante"],documents["colonia"], documents["calle"], documents["newid"], 0),0)
                                 ),);
                                 //await Navigator.push(context, MaterialPageRoute(builder: (context) =>
                                 //AGREGAR EL TOTAL POARA PASARLO A LA SIGUIENTE PANTALLA
@@ -445,7 +445,7 @@ class lista_restaurantesState extends State<lista_restaurantes> {
 
 
                       await Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                          home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correo"],documents["colonia"], documents["calle"], documents["empresa"], 0))
+                          home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correo"],documents["colonia"], documents["calle"], documents["empresa"], 0),0)
                       ),);
 
 
@@ -487,7 +487,7 @@ class lista_restaurantesState extends State<lista_restaurantes> {
                                 prefs.setString('empresa', documents["empresa"]);
 
                                 await Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                                    home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correoRestaurante"],documents["colonia"], documents["calle"], documents["newid"], 0))
+                                    home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correoRestaurante"],documents["colonia"], documents["calle"], documents["newid"], 0),0)
                                 ),);
                                 //await Navigator.push(context, MaterialPageRoute(builder: (context) =>
                                 //AGREGAR EL TOTAL POARA PASARLO A LA SIGUIENTE PANTALLA
@@ -622,7 +622,7 @@ class lista_restaurantesState extends State<lista_restaurantes> {
 
 
                       await Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                          home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correo"],documents["colonia"], documents["calle"], documents["empresa"], 0))
+                          home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correo"],documents["colonia"], documents["calle"], documents["empresa"], 0),0)
                       ),);
 
 
@@ -664,7 +664,7 @@ class lista_restaurantesState extends State<lista_restaurantes> {
                                 prefs.setString('empresa', documents["empresa"]);
 
                                 await Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                                    home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correoRestaurante"],documents["colonia"], documents["calle"], documents["newid"], 0))
+                                    home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correoRestaurante"],documents["colonia"], documents["calle"], documents["newid"], 0),0)
                                 ),);
                                 //await Navigator.push(context, MaterialPageRoute(builder: (context) =>
                                 //AGREGAR EL TOTAL POARA PASARLO A LA SIGUIENTE PANTALLA
@@ -799,7 +799,7 @@ class lista_restaurantesState extends State<lista_restaurantes> {
 
 
                       await Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                          home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correo"],documents["colonia"], documents["calle"], documents["empresa"], 0))
+                          home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correo"],documents["colonia"], documents["calle"], documents["empresa"], 0),0)
                       ),);
 
 
@@ -841,7 +841,7 @@ class lista_restaurantesState extends State<lista_restaurantes> {
                                 prefs.setString('empresa', documents["empresa"]);
 
                                 await Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                                    home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correoRestaurante"],documents["colonia"], documents["calle"], documents["newid"], 0))
+                                    home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correoRestaurante"],documents["colonia"], documents["calle"], documents["newid"], 0),0)
                                 ),);
                                 //await Navigator.push(context, MaterialPageRoute(builder: (context) =>
                                 //AGREGAR EL TOTAL POARA PASARLO A LA SIGUIENTE PANTALLA
@@ -976,7 +976,7 @@ class lista_restaurantesState extends State<lista_restaurantes> {
 
 
                       await Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                          home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correo"],documents["colonia"], documents["calle"], documents["empresa"], 0))
+                          home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correo"],documents["colonia"], documents["calle"], documents["empresa"], 0),0)
                       ),);
 
 
@@ -1018,7 +1018,7 @@ class lista_restaurantesState extends State<lista_restaurantes> {
                                 prefs.setString('empresa', documents["empresa"]);
 
                                 await Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                                    home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correoRestaurante"],documents["colonia"], documents["calle"], documents["newid"], 0))
+                                    home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correoRestaurante"],documents["colonia"], documents["calle"], documents["newid"], 0),0)
                                 ),);
                                 //await Navigator.push(context, MaterialPageRoute(builder: (context) =>
                                 //AGREGAR EL TOTAL POARA PASARLO A LA SIGUIENTE PANTALLA
@@ -1153,7 +1153,7 @@ class lista_restaurantesState extends State<lista_restaurantes> {
 
 
                       await Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                          home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correo"],documents["colonia"], documents["calle"], documents["empresa"], 0))
+                          home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correo"],documents["colonia"], documents["calle"], documents["empresa"], 0),0)
                       ),);
 
 
@@ -1195,7 +1195,7 @@ class lista_restaurantesState extends State<lista_restaurantes> {
                                 prefs.setString('empresa', documents["empresa"]);
 
                                 await Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                                    home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correoRestaurante"],documents["colonia"], documents["calle"], documents["newid"], 0))
+                                    home(cajas_modelo("", documents["empresa"],documents["miembrodesde"],documents["minutosSalida"],documents["entrada"], documents["salida"],4,5,documents["numero"],documents["correoRestaurante"],documents["colonia"], documents["calle"], documents["newid"], 0),0)
                                 ),);
                                 //await Navigator.push(context, MaterialPageRoute(builder: (context) =>
                                 //AGREGAR EL TOTAL POARA PASARLO A LA SIGUIENTE PANTALLA

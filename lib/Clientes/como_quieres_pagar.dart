@@ -4,12 +4,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
 import 'package:location_permissions/location_permissions.dart';
+import 'package:websiento11/Clientes/home.dart';
 //import 'package:onelook/Clientes/Pago_Con_Tarjeta2_Oficial.dart';
 //import 'package:onelook/Clientes/Pago_Efectivo_En_Oxxo2_Oficial.dart';
 //import 'package:onelook/Clientes/Pago_Transferencia2_Oficial.dart';
 import 'package:websiento11/Modelo/agentes_modelo.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:websiento11/Modelo/cajas_modelo.dart';
 import 'package:websiento11/Modelo/nota_modelo.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -726,10 +728,13 @@ class como_quieres_pagarState extends State<como_quieres_pagar> {
               onPressed: () async {
 
 
-                Navigator.of(context).pop();
-                Navigator.of(context).pop();
-                Navigator.of(context).pop();
-                Navigator.of(context).pop();
+                //Navigator.of(context).pop();
+                //Navigator.of(context).pop();
+                //Navigator.of(context).pop();
+                //Navigator.of(context).pop();
+
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => home(cajas_modelo("","","",0,0,0,0,0,"","","","","",0),2)));
 
                 //gps();
                 final position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);

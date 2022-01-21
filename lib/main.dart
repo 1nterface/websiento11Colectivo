@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
 
         '/clientes_login': (BuildContext context) => clientes_login(),
         '/registro': (BuildContext context) => registro(),
-        '/home': (BuildContext context) => home(cajas_modelo("","","",0,0,0,0,0,"","","","","",0)),
+        '/home': (BuildContext context) => home(cajas_modelo("","","",0,0,0,0,0,"","","","","",0),0),
         '/lista_restaurantes': (BuildContext context) => lista_restaurantes(),
 
       },
@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
 
       ),
       home:
-      home(cajas_modelo("","","",0,0, 0, 0, 0, "", "", "", "", "", 0)),
+      home(cajas_modelo("","","",0,0, 0, 0, 0, "", "", "", "", "", 0),0),
       //clientes_login(),
       //menu_cliente("","","","","","",0,0),
       // <--- App Clientes

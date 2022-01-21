@@ -11,15 +11,18 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class home extends StatefulWidget {
 
+  int selectedPage;
 
   cajas_modelo product;
-  home(this.product);
+  home(this.product, this.selectedPage);
 
   @override
   homeState createState() => homeState();
 }
 
 class homeState extends State<home> with SingleTickerProviderStateMixin {
+
+  late int selectedPage;
 
   late TabController controller;
 
@@ -192,82 +195,86 @@ class homeState extends State<home> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Color(0xff6DA08E),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Text("Siento11 Colectivo", style: const TextStyle(color: Colors.white),),
-            InkWell(
-                onTap:(){
+    return DefaultTabController(
+      initialIndex:selectedPage,
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          backgroundColor: Color(0xff6DA08E),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Text("Siento11 Colectivo", style: const TextStyle(color: Colors.white),),
+              InkWell(
+                  onTap:(){
 
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      // return object of type Dialog
-                      return AlertDialog(
-                        title: Text('¿Deseas cerrar sesion?', style: TextStyle(color: Colors.black)),
-                        actions: <Widget>[
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        // return object of type Dialog
+                        return AlertDialog(
+                          title: Text('¿Deseas cerrar sesion?', style: TextStyle(color: Colors.black)),
+                          actions: <Widget>[
 
 
 
-                          FlatButton(
-                            onPressed: (){
+                            FlatButton(
+                              onPressed: (){
 
-                              Navigator.of(context).pop();
+                                Navigator.of(context).pop();
 
-                            },
-                            child: Text('Cancelar'),
-                          ),
-                          // usually buttons at the bottom of the dialog
-                          FlatButton(
-                            child: Text("Si"),
-                            onPressed: () async {
-                              Navigator.of(context).pushNamedAndRemoveUntil('/clientes_login', (route) => false);
-                              signOut();
-                            },
-                          ),
-                        ],
-                      );
-                    },
-                  );
+                              },
+                              child: Text('Cancelar'),
+                            ),
+                            // usually buttons at the bottom of the dialog
+                            FlatButton(
+                              child: Text("Si"),
+                              onPressed: () async {
+                                Navigator.of(context).pushNamedAndRemoveUntil('/clientes_login', (route) => false);
+                                signOut();
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    );
 
-                  //_tiempoRecorrido(context, documents["estado3"], documents["pendiente"], documents["transitopendiente"], documents["encamino"], documents["ensitio"], documents["finalizo"], documents["hora"]);
-                },
-              child: Icon(Icons.exit_to_app),
-            ),
-          ],
+                    //_tiempoRecorrido(context, documents["estado3"], documents["pendiente"], documents["transitopendiente"], documents["encamino"], documents["ensitio"], documents["finalizo"], documents["hora"]);
+                  },
+                child: Icon(Icons.exit_to_app),
+              ),
+            ],
+          ),
+          bottom: TabBar(
+            controller: controller,
+            tabs: <Widget>[
+              Column(
+                children: [
+                  Tab(icon: Icon(Icons.home, color: Colors.white,)),
+                  Text("CATALOGO", style: TextStyle(color: Colors.white),),
+                ],
+              ),
+              //Tab(icon: Icon(Icons.chat), text: "CHAT",),
+              promosNotificaciones(context),
+              FirebaseAuth.instance.currentUser?.email == null?
+              comprasNotificaciones2(context)
+              :
+              comprasNotificaciones(context),
+            ],
+          ),
         ),
-        bottom: TabBar(
+        body: TabBarView(
           controller: controller,
-          tabs: <Widget>[
-            Column(
-              children: [
-                Tab(icon: Icon(Icons.home, color: Colors.white,)),
-                Text("CATALOGO", style: TextStyle(color: Colors.white),),
-              ],
-            ),
-            //Tab(icon: Icon(Icons.chat), text: "CHAT",),
-            promosNotificaciones(context),
-            FirebaseAuth.instance.currentUser?.email == null?
-            comprasNotificaciones2(context)
-            :
-            comprasNotificaciones(context),
+          children: <Widget>[
+            //proveedor.Menu_Clientes2(),
+            menu.menu_cliente(widget.product.nombreProducto, widget.product.nombreProveedor, widget.product.newid, widget.product.foto, widget.product.estado, widget.product.codigoDeBarra, widget.product.maximo, widget.product.minimo),
+            ofertas.ofertas(),
+            compras.compras(),
+            //acreedores.Mis_Compras2(),
+            //empleados.Pagos_Clientes(),
           ],
         ),
-      ),
-      body: TabBarView(
-        controller: controller,
-        children: <Widget>[
-          //proveedor.Menu_Clientes2(),
-          menu.menu_cliente(widget.product.nombreProducto, widget.product.nombreProveedor, widget.product.newid, widget.product.foto, widget.product.estado, widget.product.codigoDeBarra, widget.product.maximo, widget.product.minimo),
-          ofertas.ofertas(),
-          compras.compras(),
-          //acreedores.Mis_Compras2(),
-          //empleados.Pagos_Clientes(),
-        ],
       ),
     );
   }
