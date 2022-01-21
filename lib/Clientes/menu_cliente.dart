@@ -1,24 +1,21 @@
-import 'package:dio/dio.dart';
-import 'dart:typed_data';
-import 'dart:ui' as ui;
-import 'dart:async';
-import 'dart:html';
 import 'dart:math';
 import 'package:badges/badges.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:location_permissions/location_permissions.dart';
-import 'package:websiento11/Clientes/comprar_ahora.dart';
-import 'package:websiento11/Clientes/producto_detalle_zoom.dart';
+import 'package:siento11/Clientes/comprar_ahora.dart';
+import 'package:siento11/Direccion/carpinteria_producto_detalle.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:intl/intl.dart';
-import 'package:websiento11/Modelo/cajas_modelo.dart';
-import 'package:websiento11/Modelo/nota_modelo.dart';
+import 'package:siento11/Direccion/producto_detalle2.dart';
+import 'package:siento11/Direccion/producto_detalle_zoom.dart';
+import 'package:siento11/Modelo/cajas_modelo.dart';
+import 'package:siento11/Modelo/nota_modelo.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:websiento11/authentication.dart';
+import 'package:siento11/authentication.dart';
 import 'package:toast/toast.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
@@ -380,8 +377,8 @@ class menu_clienteState extends State<menu_cliente> {
                 Text('SUBTOTAL', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
                 Text(totalreal.toString(), style: TextStyle(fontSize: 25),),
                 totalreal == 0.0?
-                    Container()
-                :
+                Container()
+                    :
                 Container(
                   child: SizedBox(
                     child: RaisedButton(
@@ -499,8 +496,8 @@ class menu_clienteState extends State<menu_cliente> {
     );
   }
 
-   TextEditingController _emailController = TextEditingController();
-   TextEditingController _passwordController = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
   Future<void> inicioSesion() async {
     // marked async
     AuthenticationHelper()
@@ -665,19 +662,6 @@ class menu_clienteState extends State<menu_cliente> {
 
   }
 
-  //final String imageUrl = "https://www.elcarrocolombiano.com/wp-content/uploads/2019/01/20190122-MPM-ERELIS-AUTO-DEPORTIVO-MAS-BARATO-01.jpg";
-
-  Widget hola (String foto){
-
-    ui.platformViewRegistry.registerViewFactory(
-      foto,
-          (int viewId) => ImageElement()..src = foto,
-    );
-    return HtmlElementView(
-      viewType: foto,
-    );
-  }
-
   Widget _buildAboutDialog(BuildContext context, String foto, String nombreProducto, double costo, String descripcion, String empresa, String categoriap, String newid, String codigo, int existencia) {
     return StatefulBuilder(
       builder: (BuildContext context, setState) =>  ListView(
@@ -699,15 +683,10 @@ class menu_clienteState extends State<menu_cliente> {
                         await Navigator.push(context, MaterialPageRoute(builder: (context) => producto_detalle_zoom(cajas_modelo("", nombreProducto,"fecha",0,2,3,4,5,descripcion, empresa,foto,"f", newid, costo))),);
 
                         print("Precio: "+costo.toString());
-
-                        ui.platformViewRegistry.registerViewFactory(
-                          foto,
-                              (int viewId) => ImageElement()..src = foto,
-                        );
                       },
                       child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10.0),
-                        child: HtmlElementView(viewType: foto), //PONER A
+                          borderRadius: BorderRadius.circular(10.0),
+                          child: Image.network(foto)
                       ),
                     ),
                   ],
@@ -831,7 +810,7 @@ class menu_clienteState extends State<menu_cliente> {
                                 final FirebaseAuth auth = FirebaseAuth.instance;
 
                                 if(FirebaseAuth.instance.currentUser?.uid == null){
-                                // not logged
+                                  // not logged
                                   Alert(
                                       context: context,
                                       title: "Inicio de sesion",
@@ -891,7 +870,7 @@ class menu_clienteState extends State<menu_cliente> {
                                         )
                                       ]).show();
                                 } else {
-                              // logged
+                                  // logged
                                   agregarACarrito(context, foto, nombreProducto, costo, descripcion, empresa, categoriap, newid, codigo, existencia);
                                   print("Con pestania");
 
@@ -926,26 +905,6 @@ class menu_clienteState extends State<menu_cliente> {
             ],
           ),
         ],
-      ),
-    );
-  }
-
-  String foto = "";
-
-
-  Widget fotohtml(foto){
-
-    ui.platformViewRegistry.registerViewFactory(
-      foto,
-          (int viewId) => ImageElement()..src = foto,
-    );
-
-    return Container(
-      width: 200.0,
-      height: 150.0,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(10.0),
-        child: HtmlElementView(viewType: foto), //PONER A
       ),
     );
   }
@@ -987,9 +946,9 @@ class menu_clienteState extends State<menu_cliente> {
         floatingActionButton:
         FirebaseAuth.instance.currentUser?.email == null?
         notificacionesCarrito2(context)
-        :
+            :
         notificacionesCarrito(context),
-          body: StreamBuilder(
+        body: StreamBuilder(
             stream: reflistaproduccion.where('id', isEqualTo:  "978").orderBy('categoria', descending: false).orderBy('nombreProducto', descending: false).snapshots(),
             builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot){
               if (!snapshot.hasData) {
@@ -1006,92 +965,94 @@ class menu_clienteState extends State<menu_cliente> {
 
                     return
                       documents["existencia"] <= 0?
-                          Container()
-                      :
+                      Container()
+                          :
                       InkWell(
-                      onTap: () async{
+                        onTap: () async{
 
+                          var foto = documents["foto"];
+                          var newid = documents["newid"];
 
-                        var newid = documents["newid"];
+                          showDialog(context: context, builder: (BuildContext context) =>  _buildAboutDialog(context,  documents["foto"],  documents["nombreProducto"],  documents["costoProducto"],  documents["descripcion"],  "",  "",  documents["newid"],"", documents["existencia"]));
 
-                        showDialog(context: context, builder: (BuildContext context) =>  _buildAboutDialog(context,  documents["foto"],  documents["nombreProducto"],  documents["costoProducto"],  documents["descripcion"],  "",  "",  documents["newid"],"", documents["existencia"]));
+                          FirebaseFirestore.instance.collection('Pedidos_Jimena').doc(newid).update({
+                            'visto': 'si',
+                            'estado': 'Recibido',
+                          });
 
-                        FirebaseFirestore.instance.collection('Pedidos_Jimena').doc(newid).update({
-                          'visto': 'si',
-                          'estado': 'Recibido',
-                        });
-
-
-
-//HACER WIDGET DE TODO Y YA
-                      },
-                      child: Card(
-                        child: Row(
-                          children:[
-                            Row(//hj
-                                children:[
-                                  Container(
-                                    width: 200.0,
-                                    height: 150.0,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      child: Image.network(documents['foto']),
-                                    ),),
-                                  Padding(
-                                    padding: EdgeInsets.only(left:20),
-                                    child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          children: [
-                                            Container(
-                                              child: Text(documents["nombreProducto"], style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0, color: Colors.black45),),
-                                              //height: 30,
-                                              width: 100,
-                                            ),
-                                          ],
+                        },
+                        child: Card(
+                          child: Row(
+                            children:[
+                              Row(
+                                  children:[
+                                    Container(
+                                      width: 200.0,
+                                      height: 150.0,
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: NetworkImage(documents["foto"]),
                                         ),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          children: [
-                                            Container(
-                                              child: Text(documents["descripcion"], style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0, color: Colors.black26),),
-                                              //height: 30,
-                                              width: 100,
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          children: [
-                                            Container(
-                                              child: Text("Existencia "+documents["existencia"].toString(), style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0, color: Colors.black26),),
-                                              //height: 30,
-                                              width: 100,
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.end,
-                                          children: <Widget>[
-                                            Container(
-                                              child: Text("\$"+documents["costoProducto"].toString(), style: TextStyle(color: Color(0xff6DA08E), fontSize: 25),),
-                                              //height: 30,
-                                              width: 100,
-                                            ),
-                                          ],
-                                        ),
-                                      ],
+                                        //borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                                        color: Colors.transparent,
+                                      ),
                                     ),
-                                  ),
+                                    Padding(
+                                      padding: EdgeInsets.only(left:20),
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment: MainAxisAlignment.start,
+                                            children: [
+                                              Container(
+                                                child: Text(documents["nombreProducto"], style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0, color: Colors.black45),),
+                                                //height: 30,
+                                                width: 100,
+                                              ),
+                                            ],
+                                          ),
+                                          Row(
+                                            mainAxisAlignment: MainAxisAlignment.start,
+                                            children: [
+                                              Container(
+                                                child: Text(documents["descripcion"], style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0, color: Colors.black26),),
+                                                //height: 30,
+                                                width: 100,
+                                              ),
+                                            ],
+                                          ),
+                                          Row(
+                                            mainAxisAlignment: MainAxisAlignment.start,
+                                            children: [
+                                              Container(
+                                                child: Text("Existencia "+documents["existencia"].toString(), style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0, color: Colors.black26),),
+                                                //height: 30,
+                                                width: 100,
+                                              ),
+                                            ],
+                                          ),
+                                          Row(
+                                            mainAxisAlignment: MainAxisAlignment.end,
+                                            children: <Widget>[
+                                              Container(
+                                                child: Text("\$"+documents["costoProducto"].toString(), style: TextStyle(color: Color(0xff6DA08E), fontSize: 25),),
+                                                //height: 30,
+                                                width: 100,
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
 
-                                ]
-                            )
-                          ],
+                                  ]
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                    );
+                      );
                   }).toList(),
                 );
               }
