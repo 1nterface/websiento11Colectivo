@@ -60,6 +60,7 @@ class homeState extends State<home> with SingleTickerProviderStateMixin {
   @override
   void initState() {
 
+    selectedPage = 0;
     correo();
     print("NOMBRE EMPRESA PARA PASAR A MENU CLIENTES: "+widget.product.nombreProducto);
 
