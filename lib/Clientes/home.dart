@@ -67,7 +67,7 @@ class homeState extends State<home> with SingleTickerProviderStateMixin {
     //comprasNotificaciones(context);
     //promosNotificaciones(context);
     // TODO: implement initState
-    controller = TabController(length: 7, vsync: this);
+    controller = TabController(length: 3, vsync: this);
     super.initState();
   }
 
@@ -198,7 +198,7 @@ class homeState extends State<home> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return DefaultTabController(
       initialIndex:selectedPage,
-      length: 7,
+      length: 3,
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -259,10 +259,6 @@ class homeState extends State<home> with SingleTickerProviderStateMixin {
               ),
               //Tab(icon: Icon(Icons.chat), text: "CHAT",),
               promosNotificaciones(context),
-              promosNotificaciones(context),
-              promosNotificaciones(context),
-              promosNotificaciones(context),
-              promosNotificaciones(context),
               FirebaseAuth.instance.currentUser?.email == null?
               comprasNotificaciones2(context)
               :
@@ -275,10 +271,6 @@ class homeState extends State<home> with SingleTickerProviderStateMixin {
           children: <Widget>[
             //proveedor.Menu_Clientes2(),
             menu.menu_cliente(widget.product.nombreProducto, widget.product.nombreProveedor, widget.product.newid, widget.product.foto, widget.product.estado, widget.product.codigoDeBarra, widget.product.maximo, widget.product.minimo),
-            ofertas.ofertas(),
-            ofertas.ofertas(),
-            ofertas.ofertas(),
-            ofertas.ofertas(),
             ofertas.ofertas(),
             compras.compras(),
             //acreedores.Mis_Compras2(),
