@@ -898,10 +898,13 @@ class como_quieres_pagarState extends State<como_quieres_pagar> {
               child: Text("Si"),
               onPressed: () async {
 
-                Navigator.of(context).pop();
-                Navigator.of(context).pop();
-                Navigator.of(context).pop();
-                Navigator.of(context).pop();
+                //Navigator.of(context).pop();
+                //Navigator.of(context).pop();
+                //Navigator.of(context).pop();
+                //Navigator.of(context).pop();
+
+
+                Navigator.push(context, MaterialPageRoute(builder: (context) => home(cajas_modelo("10","20","30",40,50,60,70,80,"90","100","110","120","130",140),2)));
 
                 //gps();
                 final position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
