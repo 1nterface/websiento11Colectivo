@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
       color: Colors.black,
       debugShowCheckedModeBanner: false,
       routes: <String, WidgetBuilder> {
-        '/olvide_contra': (BuildContext context) => olvidecontra(),
+        '/olvide_contra': (BuildContext context) => olvidecontra(),//
 
         '/clientes_login': (BuildContext context) => clientes_login(),
         '/registro': (BuildContext context) => registro(),
